@@ -1,0 +1,26 @@
+""" Program Name: Week4.py
+Author Name: Felix A Ortiz
+
+#input field
+1. User will enter name or press q to quit
+2. User will enter an amount for their "account balance"
+3. ask the user to enter an "amount"
+
+#loop field
+1. if amount is postive add it to balance and print out new amount
+2. if amount is negative then subtract from balance and print account "account overdrawn w/ new balance"
+3. make sure if the user presses q, quit program. It should keep asking for name if q is never pressed.
+round numbers to second decimal place."""
+
+Account_balance = 0
+while True:
+    userName = input("Enter your name or enter 'q' to quit: ")
+    if userName == "q":
+        break
+    balance = float(input("Enter an ammount for your account balance: "))
+    amount = float(input("Enter the amount you want to withdraw (-) or deposit (+): "))
+    balance_Sum = balance + amount
+    if balance_Sum >= 0:
+        print ("Your account balance is ", balance_Sum)
+    else:
+        print ("Your acount is overdrawn. The overdrawn amount is ", balance_Sum)
