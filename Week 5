@@ -1,0 +1,68 @@
+"""Program: Week5Assignment.py
+Author: Felix Ortiz
+Defining the list and options
+    1. The user will be shown options 1-5 to be able to choose what they want to do.
+    2. The functions are defined per option.
+The while loop will continue and present the users with the options over and over until they enter 5 or anything outside of 1-5."""
+# Defining the list and options
+transactions = [] #this is the name of the list the user is going to be creating.
+def getSelection():
+    print ("=========Options Selection=========")
+    print("1. Add Transaction")
+    print("2. Delete Transaction")
+    print("3. Edit Transaction")
+    print("4. Display Transaction")
+    print("5. Exit Program")
+    selection = int(input("Enter a number from 1-4 or 5 to Exit: "))
+    return selection
+
+def addTransaction():
+        transaction = input("Enter new transaction key: ")
+        transactions.append(transaction)
+        print("Added")
+        
+# The user has the option to delete any of the keys they've inputed.
+def deleteTransaction():
+        deleteTransaction = input("Enter transaction key to remove: ")
+        if deleteTransaction in transactions:
+            transactionNumber = transactions.index(deleteTransaction)
+            del transactions[transactionNumber]
+            print("Deleted")
+        else:
+            print(deleteTransaction, "was not found in transactions.")
+            
+#an edit option for the user
+def editTransactions():
+        editTransaction = input("Enter transaction key you want to edit: ")
+        if editTransaction in transactions:
+            newTransaction = input("Enter the transaction key you would like to replace it with:")
+            editTransactionIndex = transactions.index(editTransaction)
+            transactions[editTransactionIndex] = newTransaction
+        else:
+            print(editTransaction, "was not found in transactions.")
+            
+#This is going to show what keys the user has inputed
+def displayTransactions():
+        print("**The following transaction keys are in your list:**")
+        for i in range(len(transactions)):
+            print(transactions[i])
+            
+# This loop is going to continue until the user enters 5 to exit or enter any number outside of 1-5
+while True :
+    print("\n")
+    selection = getSelection()
+    if (selection == 1):
+        addTransaction()
+    elif (selection == 2):
+        deleteTransaction()
+    elif (selection == 3):
+        editTransactions()
+    elif(selection == 4):
+        displayTransactions()
+    elif(selection == 5):
+        print("Exiting Program...")
+        break
+    else:
+        print("Invalid Entry! Please enter a number 1-4 or 5 to exit.")
+        print("Exiting Loop")
+        break
